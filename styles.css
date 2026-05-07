@@ -102,7 +102,7 @@ a {
 .opacity-70 { opacity: 0.7; }
 .opacity-50 { opacity: 0.5; }
 
-/* NEW Requirement: Soft drop shadows for depth on images and cards */
+/* Drop Shadows */
 .shadow-soft { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); }
 .shadow-lg { box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 .shadow-xl { box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
@@ -291,7 +291,7 @@ a {
     max-width: 350px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 3px solid #E2E8F0; /* Soft light-grey outline */
+    border: 3px solid #E2E8F0;
     position: relative;
     overflow: hidden;
 }
@@ -300,7 +300,7 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.15); /* Zoom to ensure it fills the circle entirely */
+    transform: scale(1.15);
 }
 
 .about-right {
@@ -330,7 +330,7 @@ a {
     flex: 1;
 }
 
-/* NEW Gallery Section */
+/* Gallery Section */
 .horizontal-scroll-gallery {
     display: flex;
     overflow-x: auto;
@@ -446,7 +446,6 @@ a {
     flex-direction: column;
     justify-content: center;
 }
-.food-hamper .box-content { position: relative; }
 
 .light-text h3 {
     color: var(--cream-oat);
@@ -511,9 +510,9 @@ a {
     gap: 2rem;
     overflow-x: auto;
     padding: 1rem 0 2rem;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
-.reviews-carousel::-webkit-scrollbar { display: none; } /* Chrome */
+.reviews-carousel::-webkit-scrollbar { display: none; }
 
 .review-card {
     flex: 0 0 calc(33.333% - 1.33rem);
@@ -614,26 +613,26 @@ body.no-scroll { overflow: hidden; }
     /* 1. Base Typography Constraint (min 16px) */
     body { font-size: 16px; }
     .hero-title { font-size: 3rem; }
-    p, li { font-size: 1.05rem; } /* Ensures readability without zooming */
+    p, li { font-size: 1.05rem; }
     
-    /* 2. Full single-column Stack + padding/margin layout */
-    section { margin-bottom: 25px; } /* Generous vertical padding between sections */
+    /* 2. Layout padding/margin */
+    section { margin-bottom: 25px; }
     .about-flex, .hosts-section { flex-direction: column; gap: 2.5rem; }
     .location-grid, .experiences-grid, .food-boxes { grid-template-columns: 1fr; gap: 2.5rem; }
     .footer-links { flex-direction: column; gap: 1rem; align-items: center; }
 
     /* 3. Image protections */
     img { max-width: 100%; height: auto; object-fit: cover; }
-    .hosts-img { height: auto; aspect-ratio: auto; } /* Prevent cropping */
+    .hosts-img { height: auto; aspect-ratio: auto; }
     .horizontal-scroll-gallery img { max-width: 95vw; }
     
-    /* 4. Touch Targets -> Thumb-friendly > 48px */
+    /* 4. Touch Targets */
     .btn { 
         min-height: 48px; 
         display: inline-flex; 
         align-items: center; 
         justify-content: center; 
-        width: 100%; /* More accessible on mobile */
+        width: 100%;
     }
 
     /* 5. Hamburger Overlays */
@@ -642,34 +641,45 @@ body.no-scroll { overflow: hidden; }
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     
-    .nav-container { position: relative; } /* Important for relative layering constraint */
+    .nav-container { position: relative; }
 
     .nav-links {
         position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-color: var(--sage-green);
+        top: 0; 
+        left: 0; 
+        width: 100vw; 
+        height: 100vh;
+        background-color: var(--forest-green); 
+        z-index: 9999; 
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem; /* Spacious links */
-        z-index: 1500;
+        gap: 2.5rem;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: opacity 0.3s ease-in-out;
     }
-    
+
     .nav-links.active {
         opacity: 1;
         pointer-events: auto;
     }
-    
+
     .nav-links a {
-        font-size: 1.5rem;
-        color: var(--cream-oat);
+        color: var(--cream-oat) !important;
+        font-size: 1.8rem;
+        font-family: var(--font-heading);
         min-height: 48px;
         display: flex;
         align-items: center;
     }
 
     .nav-logo { z-index: 2000; position: relative; }
+
+    /* Fix for zoomed-in hero on mobile devices */
+    .hero-bg {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
 }
