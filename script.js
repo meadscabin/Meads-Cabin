@@ -29,4 +29,26 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('no-scroll');
         });
     });
+
+    // Toggle between Hosts and Wildlife tabs
+    const toggleHostsBtn = document.getElementById('toggle-hosts');
+    const toggleWildlifeBtn = document.getElementById('toggle-wildlife');
+    const hostsTab = document.getElementById('hosts-tab-content');
+    const wildlifeTab = document.getElementById('wildlife-tab-content');
+
+    if (toggleHostsBtn && toggleWildlifeBtn && hostsTab && wildlifeTab) {
+        toggleHostsBtn.addEventListener('click', () => {
+            toggleHostsBtn.classList.add('active');
+            toggleWildlifeBtn.classList.remove('active');
+            hostsTab.classList.add('active');
+            wildlifeTab.classList.remove('active');
+        });
+
+        toggleWildlifeBtn.addEventListener('click', () => {
+            toggleWildlifeBtn.classList.add('active');
+            toggleHostsBtn.classList.remove('active');
+            wildlifeTab.classList.add('active');
+            hostsTab.classList.remove('active');
+        });
+    }
 });

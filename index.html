@@ -1,781 +1,499 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<link rel="icon" type="image/png" href="public/favicon.png">
-
+    <link rel="icon" type="image/png" href="public/favicon.png">
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Meads Cabin | Premium Rustic Retreat near Cambridge</title>
-
     <meta name="description" content="A dash of frontier style only an hour from London, with a wood-fired hot tub on the veranda and tree-lined walks to the local bakery.">
-
     
-
     <!-- Google Fonts -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
     
-
     <link rel="stylesheet" href="styles.css">
-
 </head>
-
 <body>
 
-
-
     <!-- Global Navigation -->
-
     <nav id="navbar" class="global-nav">
-
         <div class="nav-container">
-
             <a href="#home" class="nav-logo">Meads Cabin</a>
-
             <ul class="nav-links">
-
-                <li><a href="#home">Home</a></li>
-
-                <li><a href="#about">About</a></li>
-
-                <li><a href="#essentials">Essentials</a></li>
-
-                <li><a href="#location">Location</a></li>
-
-                <li><a href="#food-drink">Food & Drink</a></li>
-
-                <li><a href="#experiences">Experiences</a></li>
-
-                <li><a href="#gallery">Gallery</a></li>
-
-                <li><a href="#reviews">Reviews</a></li>
-
-                <li><a href="#booking" class="btn-book">Booking</a></li>
-
+                <li class="nav-booking"><a href="#booking" class="btn-book">Booking</a></li>
+                <li class="nav-home"><a href="#home">Home</a></li>
+                <li class="nav-about"><a href="#about">About</a></li>
+                <li class="nav-gallery"><a href="#gallery">Gallery</a></li>
+                <li class="nav-essentials"><a href="#essentials">Essentials</a></li>
+                <li class="nav-location"><a href="#location">Location</a></li>
+                <li class="nav-food"><a href="#food-drink">Food & Drink</a></li>
+                <li class="nav-experiences"><a href="#experiences">Experiences</a></li>
+                <li class="nav-reviews"><a href="#reviews">Reviews</a></li>
             </ul>
-
             <div class="hamburger">
-
                 <span class="bar"></span>
-
                 <span class="bar"></span>
-
                 <span class="bar"></span>
-
             </div>
-
         </div>
-
     </nav>
 
-
-
     <!-- Section 1: Hero -->
-
     <section id="home" class="hero-section">
-
-        <div class="hero-bg" style="background-image: url('public/hero.jpg');"></div>
-
+        <div class="hero-bg" style="background-image: url('public/side angle.png');"></div>
         <div class="hero-overlay"></div>
-
         <div class="hero-content">
-
             <h1 class="hero-title">Meads Cabin</h1>
-
             <p class="hero-subtitle">A dash of frontier style only an hour from London, with a wood-fired hot tub on the veranda and tree-lined walks to the local bakery.</p>
-
             <a href="#booking" class="btn btn-primary mt-4">Plan Your Escape</a>
-
         </div>
-
     </section>
-
-
 
     <!-- Section 2: About & Hosts -->
-
     <section id="about" class="about-section pt-20 pb-10">
-
         <div class="container container-narrow">
-
             <div class="about-flex">
-
                 <div class="about-left">
-
                     <div class="logo-wrapper shadow-soft">
-
                         <img src="public/logo.jpg" alt="Meads Cabin Logo" class="masked-logo zoomed-logo">
-
                     </div>
-
                 </div>
-
                 <div class="about-right">
-
                     <h2>A Retreat from the Modern World</h2>
-
                     <p>In just one hour on the train, direct from Liverpool St with a short hop at the other end, you find yourself in the fields and woods just south of Cambridge, feeling like you’ve stepped out of the modern world. Meads Cabin, with a long veranda where the hot tub sits calls you home to its quiet spot backed by the trees. Inside, farm tool curtain poles, a wood burner and natural tones keep the rustic theme going with a light touch, while a welcome hamper stuffed with local produce gives you a delicious tasting tour of the area. For a more direct experience of this part of the world, hire the e-bikes on site and zip around to the Barley Stores for supplies, Compass Courtyard for some great artisanal shops or a stately visit to Audley End House and Gardens. Alternatively, settle into the cabin and let the entertainment come to you, with deer, badgers, foxes and all sorts of birdlife to spot, while the occasional trundle of a tractor nearby reminds you that you’re in farming country and blissfully far, conceptually at least, from the city.</p>
-
                     
-
                     <div class="notice-box mt-4 shadow-soft">
-
                         <p class="notice-text"><em>Not suitable for children. Not suitable for pets.</em></p>
-
                     </div>
-
                 </div>
-
             </div>
 
+            <!-- Toggle Selector between Hosts and Wildlife -->
+            <div class="toggle-container mt-16">
+                <button id="toggle-hosts" class="toggle-btn active">Meet Stuart & Beccy</button>
+                <button id="toggle-wildlife" class="toggle-btn">Wildlife & Environment</button>
+            </div>
 
-
-            <div class="hosts-section mt-16">
-
+            <!-- Tab 1: Meet Stuart and Beccy -->
+            <div id="hosts-tab-content" class="hosts-section mt-8 tab-content active">
                 <div class="hosts-image-col">
-
                     <img src="public/hosts.jpg" alt="Meet Stuart and Beccy" class="hosts-img shadow-soft rounded">
-
                 </div>
-
                 <div class="hosts-content-col">
-
                     <h3>Meet Stuart and Beccy</h3>
-
                     <p>Stuart grew up at The Meads and, as his father still lives in the farmhouse, him and Beccy are about to start converting one of the barns to live in themselves. While they’re only an hour away from London, they think it feels like stepping back in time and wanted to share that sensation with others, providing a retreat from modern life.</p>
-
-                    
-
-                    <h4 class="mt-4 text-forest">Wildlife and environment</h4>
-
-                    <p>The land has been farmed by Stuart's family for around 80 years and comprises gently rolling fields growing a mix of wheat, barley, beans, peas and rapeseed. Herds of deer are often spotted around the fields and woodland as are badgers, hares and pheasants, and the surrounding hedgerows (more planting is planned) are rich with native birds.</p>
-
-                    
-
                     <p>The cabin has been on the farm for years and finally they have breathed new life into it, enjoying the challenge of re-using old items reclaimed from the barns and putting thought into how they could repurpose things rather than buying new. They felt it important to install a log-burner and a wood-fired hot-tub, as they have their own extensive supply of logs coppiced from the farm's woodland. Eco-friendly cleaning products are used throughout in the cabin, and 'green' bathroom toiletries and toilet roll are provided.</p>
-
                 </div>
-
             </div>
 
+            <!-- Tab 2: Wildlife and Environment -->
+            <div id="wildlife-tab-content" class="hosts-section mt-8 tab-content">
+                <div class="hosts-image-col">
+                    <img src="public/stags.png" alt="Wildlife and Environment" class="hosts-img shadow-soft rounded">
+                </div>
+                <div class="hosts-content-col">
+                    <h3>Wildlife and environment</h3>
+                    <p>The land has been farmed by Stuart's family for around 80 years and comprises gently rolling fields growing a mix of wheat, barley, beans, peas and rapeseed. Herds of deer are often spotted around the fields and woodland as are badgers, hares and pheasants, and the surrounding hedgerows (more planting is planned) are rich with native birds.</p>
+                </div>
+            </div>
         </div>
-
     </section>
-
-
 
     <!-- Section 3: Gallery -->
-
     <section id="gallery" class="gallery-section py-20 bg-sage">
-
         <div class="container container-medium">
-
             <div class="text-center mb-12">
-
                 <h2 class="text-cream">Gallery</h2>
-
                 <div class="devider bg-cream mx-auto"></div>
-
             </div>
-
             
-
             <div class="horizontal-scroll-gallery">
-
-                <img src="public/hottub.jpg" alt="Wood-fired Hot tub" class="shadow-soft">
-
-                <img src="public/cabin-front.jpg" alt="Cabin Exterior" class="shadow-soft">
-
-                <img src="public/night.jpg" alt="Meads Cabin at Night" class="shadow-soft">
-
-                <img src="public/interior.jpg" alt="Cozy Interior" class="shadow-soft">
-
-                <img src="public/glassdoor.jpg" alt="Glass Doors" class="shadow-soft">
-
-                <img src="public/bed.jpg" alt="King Size Bed" class="shadow-soft">
-
-                <img src="public/kitchen.jpg" alt="Rustic Kitchen" class="shadow-soft">
-
-                <img src="public/shower.jpg" alt="En Suite" class="shadow-soft">
-
-                <img src="public/axe.jpg" alt="Chopping Block" class="shadow-soft">
-
-                <img src="public/table.jpg" alt="Outdoor Seating" class="shadow-soft">
-
+                <img src="public/dusk.png" alt="Meads Cabin at Dusk" class="shadow-soft">
+                <img src="public/woodfired hottub.png" alt="Wood-fired Hot Tub" class="shadow-soft">
+                <img src="public/hottub.png" alt="Relaxing in the Hot Tub" class="shadow-soft">
+                <img src="public/sunset.png" alt="Sunset View" class="shadow-soft">
+                <img src="public/side angle.png" alt="Meads Cabin Exterior Side Angle" class="shadow-soft">
+                <img src="public/fireplace.png" alt="Fireplace" class="shadow-soft">
+                <img src="public/swinging chair.png" alt="Swinging Chair" class="shadow-soft">
+                <img src="public/bathroom.png" alt="Bathroom" class="shadow-soft">
+                <img src="public/bbq.png" alt="BBQ" class="shadow-soft">
+                <img src="public/field.png" alt="The Field" class="shadow-soft">
+                <img src="public/nightlight.png" alt="Meads Cabin Nightlight" class="shadow-soft">
+                <img src="public/painting.png" alt="Painting details" class="shadow-soft">
+                <img src="public/wine.png" alt="Wine on the deck" class="shadow-soft">
+                <img src="public/stags.png" alt="Deer in the meadow" class="shadow-soft">
+                <img src="public/stag.png" alt="Stag spotting" class="shadow-soft">
+                <img src="public/red berry.png" alt="Red Berries" class="shadow-soft">
+                <img src="public/arial.png" alt="Aerial View" class="shadow-soft">
+                <img src="public/corn.png" alt="Corn field" class="shadow-soft">
+                <img src="public/parking sign.png" alt="Parking Sign" class="shadow-soft">
             </div>
-
         </div>
-
     </section>
 
-
-
-    <!-- Section 4: Essentials Page -->
-
-    <section id="essentials" class="essentials-section py-20 relative bg-cream">
-
-        <div class="container container-narrow">
-
+    <!-- Section 4: Essentials Page (Overhauled styling and readability) -->
+    <section id="essentials" class="essentials-section py-20 relative bg-sage">
+        <div class="container container-medium">
             <div class="text-center mb-12">
-
-                <h2>The Important Stuff</h2>
-
-                <div class="devider bg-forest mx-auto"></div>
-
+                <h2 class="text-cream">The Important Stuff</h2>
+                <div class="devider bg-cream mx-auto"></div>
             </div>
-
             
+            <div class="essentials-grid">
+                <!-- Card 1 -->
+                <div class="essential-card shadow-soft">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Timing & Arrival
+                    </h3>
+                    <ul>
+                        <li>Check in: 3 PM. Check out: 11 AM.</li>
+                        <li>The car park is 120m from the cabin via a grass path. A wheelbarrow is provided to transport luggage.</li>
+                        <li>This space is accessible by public transport. Bike storage is available for guest bikes and the on-site E-bikes.</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="essential-card shadow-soft">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        Cabin Comforts
+                    </h3>
+                    <ul>
+                        <li><strong>Sleeping arrangements:</strong> One king-size bed.</li>
+                        <li>All firewood is provided. Plug sockets available. Wifi is available. Good phone signal available.</li>
+                    </ul>
+                </div>
 
-            <div class="essentials-content shadow-soft p-10 bg-white rounded">
+                <!-- Card 3 -->
+                <div class="essential-card shadow-soft">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                        Kitchen & Cooking
+                    </h3>
+                    <ul>
+                        <li>Kitchen equipped with a four-ring ceramic hob, oven, kettle, toaster and undercounter fridge with a freezer compartment. Cooking utensils, crockery and glassware is provided. Plastic glasses to use by the hot tub. ** New outdoor kitchen coming in Spring '26.</li>
+                    </ul>
+                </div>
 
-                <ul class="verbatim-list">
+                <!-- Card 4 -->
+                <div class="essential-card shadow-soft">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bath"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.6 3 4 3.6 4 4.5V17a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3"/><path d="M7 21h10"/></svg>
+                        Washing & Bath
+                    </h3>
+                    <ul>
+                        <li>En suite bathroom with a hot shower, flushing toilet and sink. Faith in Nature toiletries provided.</li>
+                    </ul>
+                </div>
 
-                    <li>Check in: 3 PM. Check out: 11 AM.</li>
+                <!-- Card 5 -->
+                <div class="essential-card shadow-soft">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                        Heating & Bedding
+                    </h3>
+                    <ul>
+                        <li>Bed linen, dressing gowns and towels provided. The main source of heat comes from the gas-fired central heating around the cabin. Underfloor heating in the bathroom. Wood burner in the main living area. Electric lighting.</li>
+                    </ul>
+                </div>
 
-                    <li>Please bring a torch, walking boots/wellies, swimwear and flip flops to wear on the way to the hot tub.</li>
-
-                    <li>Use of the hot tub is included in your stay. Preheats for your arrival are available for £25 - please contact owners directly after booking to arrange.</li>
-
-                    <li>The car park is 120m from the cabin via a grass path. A wheelbarrow is provided to transport luggage.</li>
-
-                    <li>All firewood is provided. Plug sockets available. Wifi is available. Good phone signal available.</li>
-
-                    <li>The cabin is near a farm therefore you may hear the occasional farm machinery.</li>
-
-                    <li>Please note that your host's father and their farm dog lives in a farmhouse 100m away from the cabin.</li>
-
-                    <li>This space is accessible by public transport. Bike storage is available for guest bikes and the on-site E-bikes.</li>
-
-                    <li><strong>Sleeping arrangements:</strong> One king-size bed.</li>
-
-                    <li><strong>Cooking:</strong> Kitchen equipped with a four-ring ceramic hob, oven, kettle, toaster and undercounter fridge with a freezer compartment. Cooking utensils, crockery and glassware is provided. Plastic glasses to use by the hot tub. ** New outdoor kitchen coming in Spring '26.</li>
-
-                    <li><strong>Washing:</strong> En suite bathroom with a hot shower, flushing toilet and sink. Faith in Nature toiletries provided.</li>
-
-                    <li><strong>Heating, lighting & bedding:</strong> Bed linen, dressing gowns and towels provided. The main source of heat comes from the gas-fired central heating around the cabin. Underfloor heating in the bathroom. Wood burner in the main living area. Electric lighting.</li>
-
-                    <li><strong>Entertainment:</strong> Wood-fired hot tub. E- bikes available to hire with helmets, hi-vis body straps, lock and rucksack included. Outdoor seating options including deck chairs, a swing chair and a table and chairs on both verandas. Bluetooth speaker. Small record player and vinyl. Guests are welcome to bring their own Smart TV, Board games and Playing cards, Puzzles, Books and Radio.</li>
-
-                </ul>
-
+                <!-- Card 6 -->
+                <div class="essential-card shadow-soft">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+                        Leisure & Environment
+                    </h3>
+                    <ul>
+                        <li>Wood-fired hot tub. E- bikes available to hire with helmets, hi-vis body straps, lock and rucksack included. Outdoor seating options including deck chairs, a swing chair and a table and chairs on both verandas. Bluetooth speaker. Small record player and vinyl. Guests are welcome to bring their own Smart TV, Board games and Playing cards, Puzzles, Books and Radio.</li>
+                        <li>Use of the hot tub is included in your stay. Preheats for your arrival are available for £25 - please contact owners directly after booking to arrange.</li>
+                        <li>Please bring a torch, walking boots/wellies, swimwear and flip flops to wear on the way to the hot tub.</li>
+                        <li>The cabin is near a farm therefore you may hear the occasional farm machinery.</li>
+                        <li>Please note that your host's father and their farm dog lives in a farmhouse 100m away from the cabin.</li>
+                    </ul>
+                </div>
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- Section 5: Location -->
-
     <section id="location" class="location-section py-20 bg-sage text-cream">
-
         <div class="container">
-
             <div class="location-grid">
-
                 <div class="location-info">
-
                     <h2 class="text-cream">How to Find Us</h2>
-
                     <div class="devider bg-cream mb-6"></div>
-
                     
-
                     <div class="info-block">
-
                         <h4>Address</h4>
-
                         <p class="text-cream opacity-90">The Meads, Bilden End, Chrishall, Royston, SG8 8RE.</p>
-
                     </div>
 
-
-
                     <div class="info-block mt-4">
-
                         <h4>What3Words</h4>
-
                         <p class="font-medium text-cream">///slant.flotation.guests</p>
-
                     </div>
 
-
-
                     <div class="info-block mt-4">
-
                         <h4>Transport</h4>
-
                         <p class="text-cream opacity-90"><strong>Audley End:</strong> Direct from London Liverpool St, 10-min taxi.</p>
-
                         <p class="text-cream opacity-90"><strong>Royston:</strong> Direct from Kings Cross, 15-min taxi.</p>
-
                     </div>
-
-
 
                     <div class="info-block mt-4">
-
                         <h4>By Car</h4>
-
                         <p class="text-cream opacity-90">Follow What3Words and signage from the B1039.</p>
-
                     </div>
-
                 </div>
-
-                <div class="map-responsive shadow-soft">
-
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9821.533184437229!2d0.09108187969467747!3d52.01811465630443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d88755af6e8c51%3A0xd41fa5adce1f92f4!2sChrishall%2C%20Royston%20SG8%208RE!5e0!3m2!1sen!2suk!4v1776803124846!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+                <div class="location-map shadow-soft rounded overflow-hidden">
+                    <div class="map-responsive shadow-soft">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9821.533184437229!2d0.09108187969467747!3d52.01811465630443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d88755af6e8c51%3A0xd41fa5adce1f92f4!2sChrishall%2C%20Royston%20SG8%208RE!5e0!3m2!1sen!2suk!4v1776803124846!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- Food & Drink Page -->
-
     <section id="food-drink" class="food-section py-20 bg-cream">
-
         <div class="container">
-
             <div class="text-center mb-12">
-
                 <h2>Food & Drink</h2>
-
                 <div class="devider bg-forest mx-auto"></div>
-
                 <p class="section-subtext mx-auto mt-4">Everything you need for a delicious stay, from our welcome hamper to local artisan spots.</p>
-
             </div>
-
             
-
             <div class="food-boxes">
-
-                <div class="food-box shadow-soft image-overlay-box" style="background-image: url('public/tigerbread.jpg');">
-
+                <div class="food-box shadow-soft image-overlay-box" style="background-image: url('public/corn.png');">
                     <div class="box-content list-content light-text">
-
                         <h3>Local Shops</h3>
-
                         <ul class="clean-list">
-
                             <li><strong>Barley Stores:</strong> Essentials, bread, veg, eggs, cards</li>
-
                             <li><strong>The Loaf Tin Artisan Bakery:</strong> Sourdough, small cakes</li>
-
                             <li><strong>Bury Lane Farm Shop:</strong> Butchers, fish, delicatessen, bakery, garden shop</li>
-
                             <li><strong>Supermarkets:</strong> Tesco/Waitrose in Saffron Walden/Royston</li>
-
                         </ul>
-
                     </div>
-
                 </div>
 
-
-
-                <div class="food-box shadow-soft image-overlay-box" style="background-image: url('public/wine.jpg');">
-
+                <div class="food-box shadow-soft image-overlay-box" style="background-image: url('public/wine.png');">
                     <div class="box-content list-content light-text">
-
                         <h3>Pubs & Restaurants</h3>
-
                         <ul class="clean-list">
-
                             <li>The Mixing Shed Café</li>
-
                             <li>The Red Cow</li>
-
                             <li>The Pheasant Pub</li>
-
                             <li>The Axe and Compasses Pub</li>
-
                             <li><strong>Chater’s:</strong> Specialty coffee, pasta, natural wine</li>
-
                         </ul>
-
                     </div>
-
                 </div>
-
-
 
                 <div class="food-box shadow-soft bg-sage food-hamper">
-
                     <div class="box-content text-cream">
-
                         <h3>Welcome Hamper</h3>
-
                         <p class="mb-4">Waiting for you upon your arrival:</p>
-
                         <ul class="feature-list">
-
                             <li>Local farm eggs</li>
-
                             <li>Crisps & homemade jam</li>
-
                             <li>Chocolates & shortbread</li>
-
                             <li>Croissants</li>
-
                             <li>Organic prosecco & fruit juice</li>
-
                             <li>Butter</li>
-
                         </ul>
-
                         <div class="mt-4 pt-4 border-t border-cream-20">
-
                             <strong>Essentials included:</strong><br>
-
                             Salt, pepper, oil, herbs, coffee, tea, sugar, milk.
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- Experiences Page -->
-
     <section id="experiences" class="experience-section py-20">
-
         <div class="container">
-
             <div class="text-center mb-12">
-
                 <h2>Experiences</h2>
-
                 <div class="devider bg-forest mx-auto"></div>
-
             </div>
-
-
 
             <div class="experiences-grid">
-
                 <div class="exp-card shadow-soft p-10 bg-white rounded">
-
                     <div class="exp-icon bg-sage text-cream">
-
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tent"><path d="M3.5 21 14 3"/><path d="M20.5 21 10 3"/><path d="M15.5 21 12 15l-3.5 6"/><path d="M2 21h20"/></svg>
-
                     </div>
-
                     <h4>At Meads Cabin</h4>
-
                     <p>Hire our E-bikes, soak in the wood-fired hot tub, enjoy reading by the fire, or borrow binoculars for some spectacular local wildlife spotting directly from the veranda.</p>
-
                 </div>
-
                 
-
                 <div class="exp-card shadow-soft p-10 bg-white rounded">
-
                     <div class="exp-icon bg-sage text-cream">
-
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
-
                     </div>
-
                     <h4>Places to Visit</h4>
-
                     <p>Take a trip to the picturesque market town of Saffron Walden, explore the charming village of Arkesden, or head slightly further afield for a day out in historic Cambridge.</p>
-
                 </div>
-
-
 
                 <div class="exp-card shadow-soft p-10 bg-white rounded">
-
                     <div class="exp-icon bg-sage text-cream">
-
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trees"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L15 3l-1.4 3.4"/></svg>
-
                     </div>
-
                     <h4>Outdoor & Active</h4>
-
                     <p>Immerse yourself in history and nature at Audley End House, Wandlebury Country Park, Hatfield Forest, Wicken Fen, Wimpole Hall, or Anglesey Abbey.</p>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-
-    <!-- Section 6: Reviews -->
-
+    <!-- Section 6: Reviews (Updated to show only the 8 requested reviews) -->
     <section id="reviews" class="reviews-section py-20 bg-sage text-cream relative">
-
         <div class="container">
-
             <div class="text-center mb-12">
-
                 <h2>Guest Experiences</h2>
-
                 <div class="devider bg-cream mx-auto"></div>
-
             </div>
-
-
 
             <div class="reviews-carousel">
-
-                <!-- Review Cards with Drop Shadows -->
-
+                <!-- Review 1 -->
                 <div class="review-card shadow-soft">
-
                     <div class="stars">★★★★★</div>
-
-                    <p class="review-text">"An absolutely incredible stay. The cabin was a perfect escape from city life with so many luxurious touches."</p>
-
+                    <p class="review-text">"We love it! When can we move in? We will be back"</p>
                     <div class="review-author">
-
-                        <strong>Nicola</strong>
-
-                        <span>13/02/2026</span>
-
+                        <strong>Lauren & Mark</strong>
+                        <span>July 26</span>
                     </div>
-
                 </div>
 
-
-
+                <!-- Review 2 -->
                 <div class="review-card shadow-soft">
-
                     <div class="stars">★★★★★</div>
-
-                    <p class="review-text">"Beautiful surroundings and top-tier amenities. The welcome hamper was such a lovely surprise. Highly recommended."</p>
-
+                    <p class="review-text">"…the perfect setting for a wonderful retreat away from the madding crowd of London"</p>
                     <div class="review-author">
-
-                        <strong>Luke</strong>
-
-                        <span>20/03/2026</span>
-
+                        <strong>Amandine & Quentin</strong>
+                        <span>June 26</span>
                     </div>
-
                 </div>
 
-
-
+                <!-- Review 3 -->
                 <div class="review-card shadow-soft">
-
                     <div class="stars">★★★★★</div>
-
-                    <p class="review-text">"We loved watching the wildlife right from the hot tub. The perfect mix of rustic charm and modern luxury."</p>
-
+                    <p class="review-text">"…you’re going to have the best time here! Stuart and Beccy have thought of everything from the spade holding the curtains to the Epsom salts for the hot tub. We’ve had the most wonderful & relaxing weekend at Meads Cabin. We were even lucky enough to see the spitfires flying over the cabin- while we were in the hot tub!"</p>
                     <div class="review-author">
-
-                        <strong>Jo</strong>
-
-                        <span>04/04/2026</span>
-
+                        <strong>Alex & Alex</strong>
+                        <span>September 25</span>
                     </div>
-
                 </div>
 
-
-
+                <!-- Review 4 -->
                 <div class="review-card shadow-soft">
-
                     <div class="stars">★★★★★</div>
-
-                    <p class="review-text">"A truly stunning property. Stuart and Beccy have thought of everything down to the smallest detail."</p>
-
+                    <p class="review-text">"We’ve had the most wonderful 5 days! Explored of foot, on bikes and in the car. Highlights include watching sunrise with a cuppa and the deer. Whizzing along country lanes watching the combines, seeing a real live badger, soaking in the hot-tub, hours spent reading on the swing seat, board games with a drink and excellent nights’ sleep. The cabin is perfect, you’ve thought of everything and then some, we can’t wait to come back!"</p>
                     <div class="review-author">
-
-                        <strong>Daniela</strong>
-
-                        <span>13/03/2026</span>
-
+                        <strong>Dilly & Kate</strong>
+                        <span>August 25</span>
                     </div>
-
                 </div>
 
-
-
+                <!-- Review 5 -->
                 <div class="review-card shadow-soft">
-
                     <div class="stars">★★★★★</div>
-
-                    <p class="review-text">"Such a peaceful retreat! Loved the e-bikes and the cozy wood burner on a chilly evening."</p>
-
+                    <p class="review-text">"If we had to choose one word to describe our stay at Meads Cabin, it would be ‘idyllic’. Waking up to the sound of birds, enjoying the peace and quiet from the swing seat or the hot tub, all the little luxuries- it was the perfect way to celebrate our anniversary…the setting is beautiful and the perfect escape from London."</p>
                     <div class="review-author">
-
-                        <strong>Morgan</strong>
-
-                        <span>24/01/2026</span>
-
+                        <strong>Kate & Dylan</strong>
+                        <span>July 25</span>
                     </div>
-
                 </div>
 
-
-
+                <!-- Review 6 -->
                 <div class="review-card shadow-soft">
-
                     <div class="stars">★★★★★</div>
-
-                    <p class="review-text">"Five stars all around. If you need a premium getaway to disconnect, this is the place to be."</p>
-
+                    <p class="review-text">"There are too many lovely little details to list, including the lighting, range of pillows, food hamper and Epsom salts. It all adds up to a stay that feels both luxurious and in touch with nature and heritage, calming and rejuvenating, nourishing and invigorating. We loved a meal at Chaters, drinks at The Pheasant, the Loaf Tin Bakery ."</p>
                     <div class="review-author">
-
-                        <strong>Becky</strong>
-
-                        <span>02/01/2026</span>
-
+                        <strong>Ellie & Alexis</strong>
+                        <span>June 25</span>
                     </div>
-
                 </div>
 
+                <!-- Review 7 -->
+                <div class="review-card shadow-soft">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"We’ve had a truly magical stay here at Meads Cabin; a little slice of tranquillity in a chaotic world!"</p>
+                    <div class="review-author">
+                        <strong>Beverley & Chris</strong>
+                        <span>June 25</span>
+                    </div>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card shadow-soft">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"This place exceeded our expectations. The cabin has everything you could want or need…and it’s by far the cosiest place we’ve ever stayed in. The hot tub is to die for and we spent a beautiful day listening to music on the record player and watching the world go by…"</p>
+                    <div class="review-author">
+                        <strong>Gena & Josh</strong>
+                        <span>February 26</span>
+                    </div>
+                </div>
             </div>
-
         </div>
-
     </section>
 
-
-
     <!-- Section 7: Booking -->
-
     <section id="booking" class="booking-section py-20 pb-30">
-
         <div class="container container-medium">
-
             <div class="booking-container shadow-xl">
-
-                <!-- Applied internal padding and centered text -->
-
                 <div class="booking-info bg-forest text-cream p-12 text-center" style="padding: 4rem;">
-
                     <h2>Ready to book?</h2>
-
                     
-
                     <p class="mt-6 text-cream" style="color: rgba(255, 252, 237, 0.95); font-size: 1.15rem;">
-
                         Our calendar opens 6 months in advance.<br>
-
                         Contact us for special occasions or extended stays.
-
                     </p>
-
                     
-
                     <p class="mt-8 text-cream font-medium" style="color: var(--sage-green); font-size: 1.15rem;">
-
                         Secure your retreat from the modern world today.<br>
-
                         Select your dates to see availability and rates.
-
                     </p>
-
                 </div>
-
                 <div class="booking-form p-10 bg-cream">
-
                     <script id="InnStyle-js" src="https://developer.innstyle.co.uk/calendar.min.js"></script>
-
                     <script>
                         InnStyle('meadscabin', {
                             bookable: 78057
                         });
                     </script>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-
     <!-- Section 8: Footer -->
-
     <footer class="footer bg-text-dark text-cream py-16">
-
         <div class="container text-center">
-
             <h3 class="font-heading mb-4 text-sage" style="font-size: 2.5rem;">Meads Cabin</h3>
-
             <p class="opacity-70 text-sm mb-6">The Meads, Bilden End, Chrishall, Royston, SG8 8RE.</p>
-
             
-
             <div class="get-in-touch mt-8 mb-8">
-
                 <h4 class="text-cream mb-4">Get in Touch</h4>
-
                 <a href="https://www.instagram.com/meadscabin/" target="_blank" rel="noopener noreferrer" class="social-link inline-flex align-center gap-2" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
-
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-
                     Follow us on Instagram
-
                 </a>
-
             </div>
-
-
 
             <div class="footer-links flex justify-center gap-6 text-sm mb-8 mt-10 border-t pt-8 border-cream-20">
-
                 <a href="#home">Home</a>
-
                 <a href="#about">About</a>
-
                 <a href="#essentials">Essentials</a>
-
                 <a href="#gallery">Gallery</a>
-
                 <a href="#booking">Booking</a>
-
             </div>
-
             <p class="text-xs opacity-50">&copy; 2026 Meads Cabin. All rights reserved.</p>
-
         </div>
-
     </footer>
 
-
-
     <script src="script.js"></script>
-
 </body>
-
 </html>
