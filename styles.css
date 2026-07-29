@@ -415,6 +415,9 @@ h2.text-cream { color: var(--cream-oat); }
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .essential-card:hover {
@@ -440,6 +443,7 @@ h2.text-cream { color: var(--cream-oat); }
 .essential-card ul {
     list-style: none;
     padding: 0;
+    flex-grow: 1;
 }
 
 .essential-card li {
@@ -564,6 +568,42 @@ h2.text-cream { color: var(--cream-oat); }
     left: 0; top: 0;
 }
 
+.hamper-columns {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.hamper-list {
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.hamper-list li {
+    font-size: 0.95rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--cream-oat);
+}
+
+.hamper-list li::before {
+    content: "✓";
+    color: var(--cream-oat);
+    position: absolute;
+    left: 0; top: 0;
+}
+
+@media (max-width: 576px) {
+    .hamper-columns {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
 /* Experiences */
 .experiences-grid {
     display: grid;
@@ -588,12 +628,53 @@ h2.text-cream { color: var(--cream-oat); }
 .reviews-section .devider { background-color: var(--cream-oat); }
 .reviews-section h2 { color: var(--cream-oat); }
 
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--cream-oat);
+    color: var(--forest-green);
+    border: 1px solid rgba(67, 104, 80, 0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.carousel-control:hover {
+    background-color: var(--forest-green);
+    color: var(--cream-oat);
+    border-color: var(--forest-green);
+}
+
+.carousel-control.prev {
+    left: -22px;
+}
+
+.carousel-control.next {
+    right: -22px;
+}
+
 .reviews-carousel {
     display: flex;
     gap: 2rem;
     overflow-x: auto;
     padding: 1rem 0 2rem;
     scrollbar-width: none;
+    width: 100%;
 }
 .reviews-carousel::-webkit-scrollbar { display: none; }
 
@@ -790,4 +871,12 @@ body.no-scroll { overflow: hidden; }
     .nav-links li.nav-food { order: 7; }
     .nav-links li.nav-experiences { order: 8; }
     .nav-links li.nav-reviews { order: 9; }
+
+    /* Adjust reviews carousel navigation arrows on mobile */
+    .carousel-control.prev {
+        left: -10px;
+    }
+    .carousel-control.next {
+        right: -10px;
+    }
 }
