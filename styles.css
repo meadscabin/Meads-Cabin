@@ -651,6 +651,15 @@ h2.text-cream { color: var(--cream-oat); }
 
 .booking-form {
     flex: 1;
+    min-height: 600px;
+    position: relative;
+}
+
+.booking-form iframe {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 600px !important;
+    border: none;
 }
 
 .calendar-placeholder {
