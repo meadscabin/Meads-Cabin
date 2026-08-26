@@ -51,4 +51,86 @@ document.addEventListener('DOMContentLoaded', () => {
             hostsTab.classList.remove('active');
         });
     }
+
+    // Reviews carousel scroll arrows with dynamic visibility
+    const carousel = document.querySelector('.reviews-carousel');
+    const prevBtn = document.querySelector('.carousel-control.prev');
+    const nextBtn = document.querySelector('.carousel-control.next');
+
+    function updateArrowVisibility() {
+        if (!carousel || !prevBtn || !nextBtn) return;
+        
+        // Hide left arrow if at start
+        if (carousel.scrollLeft <= 5) {
+            prevBtn.classList.add('hidden');
+        } else {
+            prevBtn.classList.remove('hidden');
+        }
+
+        // Hide right arrow if at end
+        const isEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+        if (isEnd) {
+            nextBtn.classList.add('hidden');
+        } else {
+            nextBtn.classList.remove('hidden');
+        }
+    }
+
+    if (carousel && prevBtn && nextBtn) {
+        // Initial check
+        setTimeout(updateArrowVisibility, 200);
+        
+        carousel.addEventListener('scroll', updateArrowVisibility);
+        
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -360, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: 360, behavior: 'smooth' });
+        });
+
+        // Recalculate visibility on window resize
+        window.addEventListener('resize', updateArrowVisibility);
+    }
+
+    // Gallery scroll arrows with dynamic visibility
+    const gallery = document.querySelector('.horizontal-scroll-gallery');
+    const gPrevBtn = document.querySelector('.gallery-control.prev');
+    const gNextBtn = document.querySelector('.gallery-control.next');
+
+    function updateGalleryArrowVisibility() {
+        if (!gallery || !gPrevBtn || !gNextBtn) return;
+        
+        // Hide left arrow if at start
+        if (gallery.scrollLeft <= 5) {
+            gPrevBtn.classList.add('hidden');
+        } else {
+            gPrevBtn.classList.remove('hidden');
+        }
+
+        // Hide right arrow if at end
+        const isEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 5;
+        if (isEnd) {
+            gNextBtn.classList.add('hidden');
+        } else {
+            gNextBtn.classList.remove('hidden');
+        }
+    }
+
+    if (gallery && gPrevBtn && gNextBtn) {
+        // Initial check
+        setTimeout(updateGalleryArrowVisibility, 200);
+        
+        gallery.addEventListener('scroll', updateGalleryArrowVisibility);
+        
+        gPrevBtn.addEventListener('click', () => {
+            gallery.scrollBy({ left: -450, behavior: 'smooth' });
+        });
+        gNextBtn.addEventListener('click', () => {
+            gallery.scrollBy({ left: 450, behavior: 'smooth' });
+        });
+
+        // Recalculate visibility on window resize
+        window.addEventListener('resize', updateGalleryArrowVisibility);
+    }
 });
