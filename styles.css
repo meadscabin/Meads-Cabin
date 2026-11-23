@@ -778,6 +778,269 @@ h2.text-cream { color: var(--cream-oat); }
     display: flex; align-items: center; justify-content: center;
 }
 
+/* Leave a Review */
+.hidden {
+    display: none !important;
+}
+
+.leave-review-wrapper {
+    max-width: 640px;
+    margin: 2.5rem auto 0;
+}
+
+.btn-review-cta {
+    background-color: var(--cream-oat);
+    color: var(--forest-green);
+    border: 2px solid var(--cream-oat);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-review-cta:hover {
+    background-color: transparent;
+    color: var(--cream-oat);
+}
+
+.leave-review-card {
+    background-color: var(--cream-oat);
+    color: var(--text-dark);
+    padding: 2.5rem 2rem;
+    border-radius: 6px;
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+.review-form-title {
+    font-size: 1.75rem;
+    color: var(--forest-green);
+    margin-bottom: 0.35rem;
+}
+
+.review-form-subtitle {
+    font-size: 0.95rem;
+    color: #5A665E;
+    margin-bottom: 1.75rem;
+}
+
+.form-group {
+    margin-bottom: 1.35rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.required-star {
+    color: #B84A39;
+}
+
+.optional-tag {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #6B7770;
+    font-size: 0.85rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: #FFFFFF;
+    border: 1px solid rgba(67, 104, 80, 0.25);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--forest-green);
+    box-shadow: 0 0 0 3px rgba(67, 104, 80, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.star-rating-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: #CBD3CC;
+    cursor: pointer;
+    padding: 0.15rem 0.2rem;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.star-btn:hover,
+.star-btn.hovered,
+.star-btn.selected {
+    color: #D49B35;
+}
+
+.star-btn:hover {
+    transform: scale(1.12);
+}
+
+.star-rating-label {
+    margin-left: 0.65rem;
+    font-size: 0.9rem;
+    color: #5A665E;
+    font-weight: 500;
+}
+
+.review-form-error {
+    color: #B84A39;
+    background-color: rgba(184, 74, 57, 0.08);
+    border-left: 3px solid #B84A39;
+    padding: 0.65rem 0.9rem;
+    border-radius: 2px;
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+}
+
+.review-form-success {
+    color: var(--forest-green);
+    background-color: rgba(67, 104, 80, 0.1);
+    border-left: 3px solid var(--forest-green);
+    padding: 0.65rem 0.9rem;
+    border-radius: 2px;
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+}
+
+.review-form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Review Photo Upload & Display */
+.photo-file-input {
+    display: none;
+}
+
+.photo-upload-label {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.25rem;
+    background-color: #FFFFFF;
+    border: 1.5px dashed rgba(67, 104, 80, 0.45);
+    border-radius: 4px;
+    color: var(--forest-green) !important;
+    font-size: 0.92rem !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 0 !important;
+}
+
+.photo-upload-label:hover {
+    background-color: rgba(173, 188, 159, 0.18);
+    border-color: var(--forest-green);
+}
+
+.photo-preview-wrapper {
+    margin-top: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #FFFFFF;
+    padding: 0.65rem;
+    border-radius: 4px;
+    border: 1px solid rgba(67, 104, 80, 0.2);
+}
+
+.photo-preview-img {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(67, 104, 80, 0.2);
+}
+
+.remove-photo-btn {
+    background: none;
+    border: 1px solid #B84A39;
+    color: #B84A39;
+    padding: 0.35rem 0.75rem;
+    border-radius: 3px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.remove-photo-btn:hover {
+    background-color: #B84A39;
+    color: #FFFFFF;
+}
+
+.review-photo-container {
+    margin-top: 1.15rem;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(67, 104, 80, 0.2);
+}
+
+.review-photo-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.review-photo-img:hover {
+    transform: scale(1.03);
+}
+
+.photo-lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 26, 23, 0.88);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    cursor: zoom-out;
+}
+
+.photo-lightbox-overlay img {
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 6px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--cream-oat);
+}
+
 /* Footer */
 .footer a {
     color: var(--sage-green);
@@ -786,6 +1049,33 @@ h2.text-cream { color: var(--cream-oat); }
     letter-spacing: 1px;
 }
 .footer a:hover { color: var(--cream-oat); }
+
+.contact-links-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1rem;
+}
+
+.footer a.email-link {
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+.admin-footer-link {
+    opacity: 0.65;
+}
+.admin-footer-link:hover {
+    opacity: 1;
+}
 
 /* Responsive Tools */
 body.no-scroll { overflow: hidden; }
@@ -887,6 +1177,16 @@ body.no-scroll { overflow: hidden; }
     .nav-links li.nav-food { order: 7; }
     .nav-links li.nav-experiences { order: 8; }
     .nav-links li.nav-reviews { order: 9; }
+    .nav-links li.nav-contact { order: 10; }
+
+    .contact-links-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .leave-review-card {
+        padding: 1.75rem 1.25rem;
+    }
 
     /* Adjust reviews and gallery navigation arrows on mobile */
     .carousel-control.prev, .gallery-control.prev {

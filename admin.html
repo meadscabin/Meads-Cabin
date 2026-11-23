@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Admin | Meads Cabin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--cream-oat);
+        }
+        .admin-header {
+            background-color: var(--forest-green);
+            color: var(--cream-oat);
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .admin-header-brand {
+            font-family: var(--font-heading);
+            font-size: 1.65rem;
+            color: var(--cream-oat);
+            margin: 0;
+        }
+        .admin-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .admin-header a {
+            color: var(--cream-oat);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        .admin-header a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .btn-signout {
+            background: rgba(255, 252, 237, 0.15);
+            color: var(--cream-oat);
+            border: 1px solid rgba(255, 252, 237, 0.4);
+            padding: 0.45rem 1rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-signout:hover {
+            background: var(--cream-oat);
+            color: var(--forest-green);
+        }
+        .admin-main {
+            flex: 1;
+            padding: 3rem 1.5rem 4rem;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .admin-login-card {
+            max-width: 440px;
+            margin: 3rem auto;
+            background: #FFFFFF;
+            padding: 2.5rem 2rem;
+            border-radius: 6px;
+            border: 1px solid rgba(67, 104, 80, 0.15);
+        }
+        .admin-notice {
+            padding: 0.9rem 1.1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .admin-notice-warn {
+            background-color: #FFF6E5;
+            border-left: 4px solid #D49B35;
+            color: #5C4310;
+        }
+        .admin-notice-info {
+            background-color: rgba(173, 188, 159, 0.25);
+            border-left: 4px solid var(--forest-green);
+            color: var(--text-dark);
+        }
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .stat-box {
+            background: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid rgba(67, 104, 80, 0.12);
+            text-align: center;
+        }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--forest-green);
+            line-height: 1.1;
+        }
+        .stat-label {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #5A665E;
+            margin-top: 0.4rem;
+        }
+        .admin-section-title {
+            font-size: 1.5rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(67, 104, 80, 0.18);
+        }
+        .admin-reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+        .admin-review-item {
+            background: #FFFFFF;
+            padding: 1.35rem 1.5rem;
+            border-radius: 6px;
+            border: 1px solid rgba(67, 104, 80, 0.14);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        .admin-review-item.is-hidden-review {
+            opacity: 0.65;
+            background: #F6F5EE;
+        }
+        .admin-review-meta {
+            flex: 1;
+        }
+        .admin-review-top {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.4rem;
+        }
+        .admin-review-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+        .admin-review-stars {
+            color: #D49B35;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+        }
+        .admin-review-date {
+            font-size: 0.85rem;
+            color: #6B7770;
+        }
+        .admin-badge {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            padding: 0.18rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .badge-guest {
+            background-color: rgba(67, 104, 80, 0.12);
+            color: var(--forest-green);
+        }
+        .badge-default {
+            background-color: rgba(173, 188, 159, 0.3);
+            color: #3E4C43;
+        }
+        .badge-removed {
+            background-color: rgba(184, 74, 57, 0.12);
+            color: #B84A39;
+        }
+        .admin-review-body {
+            font-size: 0.96rem;
+            color: #4A5568;
+            margin: 0.35rem 0 0;
+        }
+        .admin-review-empty-text {
+            font-style: italic;
+            color: #8A948D;
+        }
+        .btn-remove {
+            background-color: transparent;
+            color: #B84A39;
+            border: 1px solid #B84A39;
+            padding: 0.45rem 0.95rem;
+            border-radius: 3px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+        .btn-remove:hover {
+            background-color: #B84A39;
+            color: #FFFFFF;
+        }
+        .btn-restore {
+            background-color: transparent;
+            color: var(--forest-green);
+            border: 1px solid var(--forest-green);
+            padding: 0.45rem 0.95rem;
+            border-radius: 3px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+        .btn-restore:hover {
+            background-color: var(--forest-green);
+            color: var(--cream-oat);
+        }
+        .empty-state {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 6px;
+            text-align: center;
+            color: #6B7770;
+            border: 1px dashed rgba(67, 104, 80, 0.25);
+        }
+        @media (max-width: 768px) {
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+            .admin-review-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1 class="admin-header-brand">Meads Cabin &mdash; Review Admin</h1>
+        <div class="admin-header-actions">
+            <a href="index.html">&larr; Back to Website</a>
+            <button type="button" id="signout-btn" class="btn-signout hidden">Sign Out</button>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <!-- Login View -->
+        <section id="admin-login-card" class="admin-login-card shadow-soft">
+            <h2 style="font-size: 1.85rem; margin-bottom: 0.4rem;">Admin Sign In</h2>
+            <p style="font-size: 0.95rem; color: #5A665E; margin-bottom: 1.5rem;">
+                Sign in to monitor and manage guest reviews for Meads Cabin.
+            </p>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-password">Admin Password</label>
+                    <input type="password" id="admin-password" placeholder="Enter admin password" required autocomplete="current-password">
+                </div>
+                <p id="login-error" class="review-form-error hidden"></p>
+                <button type="submit" id="login-submit-btn" class="btn btn-primary w-full">Sign In</button>
+            </form>
+        </section>
+
+        <!-- Dashboard View -->
+        <section id="admin-dashboard" class="hidden">
+            <div id="default-pw-banner" class="admin-notice admin-notice-warn hidden">
+                <strong>Security tip:</strong> You are currently using the default admin password. Set an <code>ADMIN_PASSWORD</code> environment variable in your Cloudflare Pages dashboard (Settings &rarr; Environment variables) to use your own private password.
+            </div>
+            <div id="kv-warning-banner" class="admin-notice admin-notice-warn hidden">
+                <strong>Storage not connected yet:</strong> Bind a Cloudflare KV namespace named <code>REVIEWS_KV</code> in your Cloudflare Pages project (Settings &rarr; Bindings &rarr; KV namespace) so reviews are saved across all visitors.
+            </div>
+            <div id="local-mode-banner" class="admin-notice admin-notice-info hidden">
+                <strong>Local preview mode:</strong> Running without Cloudflare Pages Functions, so changes here are saved to this browser's <code>localStorage</code>.
+            </div>
+
+            <div class="admin-stats">
+                <div class="stat-box shadow-soft">
+                    <div class="stat-number" id="stat-visible">0</div>
+                    <div class="stat-label">Visible on Site</div>
+                </div>
+                <div class="stat-box shadow-soft">
+                    <div class="stat-number" id="stat-guest">0</div>
+                    <div class="stat-label">Guest-Submitted</div>
+                </div>
+                <div class="stat-box shadow-soft">
+                    <div class="stat-number" id="stat-hidden">0</div>
+                    <div class="stat-label">Hidden Originals</div>
+                </div>
+            </div>
+
+            <h2 class="admin-section-title">Guest-Submitted Reviews</h2>
+            <div id="guest-reviews-list" class="admin-reviews-list"></div>
+
+            <h2 class="admin-section-title">Original Featured Reviews</h2>
+            <div id="default-reviews-list" class="admin-reviews-list"></div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const TOKEN_KEY = 'meadscabin_admin_token';
+            const LOCAL_REVIEWS_KEY = 'meadscabin_reviews_v1';
+
+            const DEFAULT_REVIEWS = [
+                { id: 'default-1', name: 'Lauren & Mark', rating: 5, date: 'July 26', text: 'We love it! When can we move in? We will be back' },
+                { id: 'default-2', name: 'Amandine & Quentin', rating: 5, date: 'June 26', text: '…the perfect setting for a wonderful retreat away from the madding crowd of London' },
+                { id: 'default-3', name: 'Alex & Alex', rating: 5, date: 'September 25', text: '…you’re going to have the best time here! Stuart and Beccy have thought of everything from the spade holding the curtains to the Epsom salts for the hot tub. We’ve had the most wonderful & relaxing weekend at Meads Cabin. We were even lucky enough to see the spitfires flying over the cabin- while we were in the hot tub!' },
+                { id: 'default-4', name: 'Dilly & Kate', rating: 5, date: 'August 25', text: 'We’ve had the most wonderful 5 days! Explored of foot, on bikes and in the car. Highlights include watching sunrise with a cuppa and the deer. Whizzing along country lanes watching the combines, seeing a real live badger, soaking in the hot-tub, hours spent reading on the swing seat, board games with a drink and excellent nights’ sleep. The cabin is perfect, you’ve thought of everything and then some, we can’t wait to come back!' },
+                { id: 'default-5', name: 'Kate & Dylan', rating: 5, date: 'July 25', text: 'If we had to choose one word to describe our stay at Meads Cabin, it would be ‘idyllic’. Waking up to the sound of birds, enjoying the peace and quiet from the swing seat or the hot tub, all the little luxuries- it was the perfect way to celebrate our anniversary…the setting is beautiful and the perfect escape from London.' },
+                { id: 'default-6', name: 'Ellie & Alexis', rating: 5, date: 'June 25', text: 'There are too many lovely little details to list, including the lighting, range of pillows, food hamper and Epsom salts. It all adds up to a stay that feels both luxurious and in touch with nature and heritage, calming and rejuvenating, nourishing and invigorating. We loved a meal at Chaters, drinks at The Pheasant, the Loaf Tin Bakery .' },
+                { id: 'default-7', name: 'Beverley & Chris', rating: 5, date: 'June 25', text: 'We’ve had a truly magical stay here at Meads Cabin; a little slice of tranquillity in a chaotic world!' },
+                { id: 'default-8', name: 'Gena & Josh', rating: 5, date: 'February 26', text: 'This place exceeded our expectations. The cabin has everything you could want or need…and it’s by far the cosiest place we’ve ever stayed in. The hot tub is to die for and we spent a beautiful day listening to music on the record player and watching the world go by…' }
+            ];
+
+            const loginCard = document.getElementById('admin-login-card');
+            const loginForm = document.getElementById('admin-login-form');
+            const passwordInput = document.getElementById('admin-password');
+            const loginError = document.getElementById('login-error');
+            const loginSubmitBtn = document.getElementById('login-submit-btn');
+            const dashboard = document.getElementById('admin-dashboard');
+            const signoutBtn = document.getElementById('signout-btn');
+
+            const defaultPwBanner = document.getElementById('default-pw-banner');
+            const kvWarningBanner = document.getElementById('kv-warning-banner');
+            const localModeBanner = document.getElementById('local-mode-banner');
+
+            const statVisible = document.getElementById('stat-visible');
+            const statGuest = document.getElementById('stat-guest');
+            const statHidden = document.getElementById('stat-hidden');
+            const guestListEl = document.getElementById('guest-reviews-list');
+            const defaultListEl = document.getElementById('default-reviews-list');
+
+            let isLocalMode = false;
+
+            function getLocalStore() {
+                try {
+                    const raw = localStorage.getItem(LOCAL_REVIEWS_KEY);
+                    if (!raw) return { customReviews: [], hiddenDefaultIds: [] };
+                    const parsed = JSON.parse(raw);
+                    return {
+                        customReviews: Array.isArray(parsed.customReviews) ? parsed.customReviews : [],
+                        hiddenDefaultIds: Array.isArray(parsed.hiddenDefaultIds) ? parsed.hiddenDefaultIds : []
+                    };
+                } catch {
+                    return { customReviews: [], hiddenDefaultIds: [] };
+                }
+            }
+
+            function saveLocalStore(store) {
+                localStorage.setItem(LOCAL_REVIEWS_KEY, JSON.stringify(store));
+            }
+
+            function formatStars(rating) {
+                const count = Math.max(1, Math.min(5, Number(rating) || 5));
+                return '★'.repeat(count) + '☆'.repeat(5 - count);
+            }
+
+            function showLogin(message = '') {
+                sessionStorage.removeItem(TOKEN_KEY);
+                dashboard.classList.add('hidden');
+                signoutBtn.classList.add('hidden');
+                loginCard.classList.remove('hidden');
+                if (message) {
+                    loginError.textContent = message;
+                    loginError.classList.remove('hidden');
+                } else {
+                    loginError.classList.add('hidden');
+                }
+            }
+
+            function renderDashboard(customReviews, hiddenDefaultIds) {
+                const hiddenSet = new Set(hiddenDefaultIds || []);
+                const visibleDefaultsCount = DEFAULT_REVIEWS.filter(r => !hiddenSet.has(r.id)).length;
+
+                statVisible.textContent = String(customReviews.length + visibleDefaultsCount);
+                statGuest.textContent = String(customReviews.length);
+                statHidden.textContent = String(hiddenSet.size);
+
+                // Guest reviews
+                guestListEl.innerHTML = '';
+                if (customReviews.length === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'empty-state';
+                    empty.textContent = 'No guest-submitted reviews yet.';
+                    guestListEl.appendChild(empty);
+                } else {
+                    customReviews.forEach(review => {
+                        guestListEl.appendChild(buildReviewRow(review, 'guest', false));
+                    });
+                }
+
+                // Default reviews
+                defaultListEl.innerHTML = '';
+                DEFAULT_REVIEWS.forEach(review => {
+                    const isHidden = hiddenSet.has(review.id);
+                    defaultListEl.appendChild(buildReviewRow(review, 'default', isHidden));
+                });
+            }
+
+            function buildReviewRow(review, kind, isHidden) {
+                const row = document.createElement('div');
+                row.className = 'admin-review-item shadow-soft' + (isHidden ? ' is-hidden-review' : '');
+
+                const meta = document.createElement('div');
+                meta.className = 'admin-review-meta';
+
+                const top = document.createElement('div');
+                top.className = 'admin-review-top';
+
+                const nameEl = document.createElement('span');
+                nameEl.className = 'admin-review-name';
+                nameEl.textContent = review.name;
+                top.appendChild(nameEl);
+
+                const starsEl = document.createElement('span');
+                starsEl.className = 'admin-review-stars';
+                starsEl.textContent = formatStars(review.rating);
+                top.appendChild(starsEl);
+
+                if (review.date) {
+                    const dateEl = document.createElement('span');
+                    dateEl.className = 'admin-review-date';
+                    dateEl.textContent = review.date;
+                    top.appendChild(dateEl);
+                }
+
+                const badge = document.createElement('span');
+                if (isHidden) {
+                    badge.className = 'admin-badge badge-removed';
+                    badge.textContent = 'Hidden';
+                } else if (kind === 'guest') {
+                    badge.className = 'admin-badge badge-guest';
+                    badge.textContent = 'Guest Review';
+                } else {
+                    badge.className = 'admin-badge badge-default';
+                    badge.textContent = 'Featured';
+                }
+                top.appendChild(badge);
+                meta.appendChild(top);
+
+                const body = document.createElement('p');
+                body.className = 'admin-review-body';
+                if (review.text && review.text.trim()) {
+                    body.textContent = `"${review.text.trim()}"`;
+                } else {
+                    body.classList.add('admin-review-empty-text');
+                    body.textContent = 'No written comment provided.';
+                }
+                meta.appendChild(body);
+
+                if (review.photo && typeof review.photo === 'string' && review.photo.startsWith('data:image/')) {
+                    const thumb = document.createElement('img');
+                    thumb.src = review.photo;
+                    thumb.alt = `Photo by ${review.name}`;
+                    thumb.style.cssText = 'margin-top: 0.75rem; max-width: 180px; max-height: 130px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(67,104,80,0.2); display: block;';
+                    meta.appendChild(thumb);
+                }
+
+                row.appendChild(meta);
+
+                const actionBtn = document.createElement('button');
+                actionBtn.type = 'button';
+                if (kind === 'guest') {
+                    actionBtn.className = 'btn-remove';
+                    actionBtn.textContent = 'Remove';
+                    actionBtn.addEventListener('click', () => handleAction('delete_custom', review.id, review.name));
+                } else if (isHidden) {
+                    actionBtn.className = 'btn-restore';
+                    actionBtn.textContent = 'Restore';
+                    actionBtn.addEventListener('click', () => handleAction('restore_default', review.id, review.name));
+                } else {
+                    actionBtn.className = 'btn-remove';
+                    actionBtn.textContent = 'Remove';
+                    actionBtn.addEventListener('click', () => handleAction('hide_default', review.id, review.name));
+                }
+                row.appendChild(actionBtn);
+
+                return row;
+            }
+
+            async function loadDashboard() {
+                if (isLocalMode) {
+                    const local = getLocalStore();
+                    localModeBanner.classList.remove('hidden');
+                    loginCard.classList.add('hidden');
+                    dashboard.classList.remove('hidden');
+                    signoutBtn.classList.remove('hidden');
+                    renderDashboard(local.customReviews, local.hiddenDefaultIds);
+                    return;
+                }
+
+                const token = sessionStorage.getItem(TOKEN_KEY);
+                if (!token) {
+                    showLogin();
+                    return;
+                }
+
+                try {
+                    const res = await fetch('/api/admin', {
+                        headers: { 'Authorization': `Bearer ${token}` },
+                        cache: 'no-store'
+                    });
+                    if (res.status === 401) {
+                        showLogin('Your session expired. Please sign in again.');
+                        return;
+                    }
+                    if (!res.ok) throw new Error('API_UNAVAILABLE');
+                    const data = await res.json();
+                    if (data.kvConfigured === false) {
+                        kvWarningBanner.classList.remove('hidden');
+                    } else {
+                        kvWarningBanner.classList.add('hidden');
+                    }
+                    loginCard.classList.add('hidden');
+                    dashboard.classList.remove('hidden');
+                    signoutBtn.classList.remove('hidden');
+                    renderDashboard(data.customReviews || [], data.hiddenDefaultIds || []);
+                } catch {
+                    showLogin();
+                }
+            }
+
+            async function handleAction(action, id, reviewerName) {
+                if (action === 'delete_custom' || action === 'hide_default') {
+                    const msg = action === 'delete_custom'
+                        ? `Permanently remove the review from ${reviewerName}?`
+                        : `Hide the featured review from ${reviewerName} on the website?`;
+                    if (!window.confirm(msg)) return;
+                }
+
+                if (isLocalMode) {
+                    const local = getLocalStore();
+                    if (action === 'delete_custom') {
+                        local.customReviews = local.customReviews.filter(r => r.id !== id);
+                    } else if (action === 'hide_default') {
+                        if (!local.hiddenDefaultIds.includes(id)) local.hiddenDefaultIds.push(id);
+                    } else if (action === 'restore_default') {
+                        local.hiddenDefaultIds = local.hiddenDefaultIds.filter(hid => hid !== id);
+                    }
+                    saveLocalStore(local);
+                    renderDashboard(local.customReviews, local.hiddenDefaultIds);
+                    return;
+                }
+
+                const token = sessionStorage.getItem(TOKEN_KEY);
+                const res = await fetch('/api/admin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ action, id })
+                });
+
+                if (res.status === 401) {
+                    showLogin('Your session expired. Please sign in again.');
+                    return;
+                }
+
+                if (res.ok) {
+                    const data = await res.json();
+                    renderDashboard(data.customReviews || [], data.hiddenDefaultIds || []);
+                } else {
+                    const err = await res.json().catch(() => ({}));
+                    alert(err.error || 'Could not update review.');
+                }
+            }
+
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                loginError.classList.add('hidden');
+                const password = passwordInput.value;
+                if (!password) return;
+
+                loginSubmitBtn.disabled = true;
+                loginSubmitBtn.textContent = 'Signing in...';
+
+                try {
+                    const res = await fetch('/api/admin', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'login', password })
+                    });
+
+                    if (res.status === 404 || res.status === 405) {
+                        throw new Error('API_UNAVAILABLE');
+                    }
+
+                    const data = await res.json();
+                    if (!res.ok) {
+                        loginError.textContent = data.error || 'Incorrect password.';
+                        loginError.classList.remove('hidden');
+                        loginSubmitBtn.disabled = false;
+                        loginSubmitBtn.textContent = 'Sign In';
+                        return;
+                    }
+
+                    isLocalMode = false;
+                    sessionStorage.setItem(TOKEN_KEY, data.token);
+                    if (data.usingDefaultPassword) {
+                        defaultPwBanner.classList.remove('hidden');
+                    }
+                    passwordInput.value = '';
+                    await loadDashboard();
+                } catch {
+                    // Local preview fallback
+                    if (password === 'MeadsCabin2026!') {
+                        isLocalMode = true;
+                        passwordInput.value = '';
+                        await loadDashboard();
+                    } else {
+                        loginError.textContent = 'Incorrect password.';
+                        loginError.classList.remove('hidden');
+                    }
+                } finally {
+                    loginSubmitBtn.disabled = false;
+                    loginSubmitBtn.textContent = 'Sign In';
+                }
+            });
+
+            signoutBtn.addEventListener('click', () => {
+                isLocalMode = false;
+                defaultPwBanner.classList.add('hidden');
+                kvWarningBanner.classList.add('hidden');
+                localModeBanner.classList.add('hidden');
+                showLogin();
+            });
+
+            if (sessionStorage.getItem(TOKEN_KEY)) {
+                loadDashboard();
+            }
+        });
+    </script>
+</body>
+</html>
