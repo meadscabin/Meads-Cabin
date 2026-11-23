@@ -1,14 +1,28 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "meads-cabin",
-  "compatibility_date": "2026-05-07",
-  "observability": {
-    "enabled": true
-  },
+  "main": "worker.js",
+  "compatibility_date": "2026-01-01",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
   },
-  "compatibility_flags": [
-    "nodejs_compat"
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "REVIEWS_DO",
+        "class_name": "ReviewsStore"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "ReviewsStore"
+      ]
+    }
   ]
 }
